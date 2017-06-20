@@ -18,6 +18,8 @@ with open("../images/names.list") as fname:
         imgname = '../images/%s.fits' % name
         ngc_num = imgname[13:-6]
         
+        print('CURRENT GALAXY : %s' % ngc_num)
+        
         FWHM = 1.57
         
         img = sliceGAL.ImageSlice(imgname)
@@ -36,10 +38,13 @@ with open("../images/names.list") as fname:
             
             z = CoordTf.fitEllipse(coord[0],coord[1])
             coord_iso = CoordTf.CT_to_Unit_Cir(coord,z)
-            
-            
+            axes = CoordTf.ellipse_axis_length(z)
+            axes.sort()
+            axis = axes[1]*0.396    #pixel size of SDSS image in arcsec
+            scale = np.sqrt(axes[0]/axes[1])
             B4 = fit.fitB4(coord_iso)
-            fdat = '%d %e\n' % (i,B4)
+            fdat = '%e %e %e\n' % (axis,B4,scale)
             f.write(fdat)
         
         f.close()
+        

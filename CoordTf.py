@@ -57,7 +57,6 @@ def CT_to_Unit_Cir(coord,a):
     
     center = ellipse_center(a)
     phi = ellipse_angle_of_rotation(a)
-    print(phi)
     axes = ellipse_axis_length(a)
     axes.sort()
     x, y = coord
@@ -81,7 +80,7 @@ def CT_to_Unit_Cir(coord,a):
     u= (1/axes[1])*np.cos(phi)*x + (1/axes[1])*np.sin(phi)*y
     v= (-1/axes[0])*np.sin(phi)*x + (1/axes[0])*np.cos(phi)*y
     
-    plt.figure(figsize=(10,10))
+    plt.figure(figsize=(3,3))
     plt.plot (u,v)
     plt.show()
     
