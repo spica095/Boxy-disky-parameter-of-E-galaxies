@@ -5,6 +5,7 @@ Created on Tue Jun 20 12:22:45 2017
 """
 #%%
 from matplotlib import pyplot as plt
+from matplotlib import ticker
 import numpy as np
 
 a4 = np.zeros(20)
@@ -21,22 +22,26 @@ def plot_result(ngc_num,n):
         i=0
         x = np.zeros(18)
         B4 = np.zeros(18)
+        scale = np.zeros(18)
         for line in f:
-            xt,yt=line.split()
+            xt,yt,scalet=line.split()
             x[i]=float(xt)
-            B4[i]=yt
+            B4[i]=float(yt)/float(scalet)
+            scale[i]=float(scalet)
             i += 1    
         f.close()
     
     plt.figure(figsize=(3,3))
     plt.scatter(x,B4,color='black')
-    plt.title("B4 value for NGC %s" % ngc_num)
-    plt.ylabel("B4")
+    plt.xscale('log')
+    plt.ticklabel_format(style='plain')
+    plt.title("a4/a value for NGC %s" % ngc_num)
+    plt.ylabel("a4/a")
     plt.xlabel('semimajor axis (arcsec)')
     if a4[n] < 10:
-        aa = np.ones(np.shape(x))*a4[n]
+        aa = np.ones(np.shape(x))*a4[n]*0.01
         plt.plot(x,aa,color='red')
-    plt.savefig('../results/%s.png' % ngc_num)
+    plt.savefig('../results/%s.png' % ngc_num,bbox_inches='tight')
     plt.show()
 
 
