@@ -26,7 +26,7 @@ def plot_result(ngc_num,n):
         for line in f:
             xt,yt,scalet=line.split()
             x[i]=float(xt)
-            B4[i]=float(yt)/float(scalet)
+            B4[i]=float(yt)*float(scalet)
             scale[i]=float(scalet)
             i += 1    
         f.close()
@@ -34,7 +34,6 @@ def plot_result(ngc_num,n):
     plt.figure(figsize=(3,3))
     plt.scatter(x,B4,color='black')
     plt.xscale('log')
-    plt.ticklabel_format(style='plain')
     plt.title("a4/a value for NGC %s" % ngc_num)
     plt.ylabel("a4/a")
     plt.xlabel('semimajor axis (arcsec)')
