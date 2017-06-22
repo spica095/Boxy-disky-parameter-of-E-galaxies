@@ -3,8 +3,4 @@ This is a repo of Elliptical galaxy morphology team project for 2017 Astronomica
 
 # Contributions
 
-* 박형욱: 
-* 정만근:
-* 위너준현:
-* Bruno Damasio: 
 
