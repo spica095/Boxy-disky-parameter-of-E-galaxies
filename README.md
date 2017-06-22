@@ -9,4 +9,6 @@ fitting code, and coordinate transformation with Hyeonguk Park.
 Also Neojunhyun Wi contributed on the finding the isophote of the galaxy 
 among many isophotes on contour map.
 
-# 
+# Description
+
+ 

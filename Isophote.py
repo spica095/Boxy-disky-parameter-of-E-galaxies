@@ -3,7 +3,7 @@ Created on Mon Jun 19 01:01:50 2017
 
 @author: Hyeonguk Park
 """
-#%%
+
 from scipy.signal import medfilt
 from matplotlib import pyplot as plt
 import numpy as np
